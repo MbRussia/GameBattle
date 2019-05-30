@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GameBattle</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="battle">Battle</string>
+    <string name="dima">Hello Dima</string>
+    <string name="pasha">hello pasha</string>
+</resources>
