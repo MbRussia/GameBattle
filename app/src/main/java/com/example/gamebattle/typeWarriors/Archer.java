@@ -1,8 +1,8 @@
 package com.example.gamebattle.typeWarriors;
 
-public class Viking implements Warrior {
-    private int healts = 100;
-    private int attack = 50;
+public class Archer implements Warrior {
+    private int healts = 80;
+    private int attack = 80;
 
     @Override
     public int attack() {
@@ -29,7 +29,7 @@ public class Viking implements Warrior {
 
     @Override
     public String toString() {
-        return "Viking{" +
+        return "Archer{" +
                 "healts=" + healts +
                 ", attack=" + attack +
                 '}';
