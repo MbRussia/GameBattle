@@ -1,7 +1,7 @@
 package com.example.gamebattle;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,7 +11,6 @@ import com.example.gamebattle.typeWarriors.Viking;
 import com.example.gamebattle.typeWarriors.Warrior;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,31 +50,31 @@ public class MainActivity extends AppCompatActivity {
             warriorUnitRight.add(new Viking());
             warriorUnitLeft.add(new Archer());
         }
-        tvInfo.append(DateHelper.getFormattedStartDate());
+        tvInfo.append(DateHelper.getFormattedStartDate() + "\n");
         while (loop) {
             int attack = rnd.nextInt(2);
             Warrior unitRight = warriorUnitRight.get(rnd.nextInt(warriorUnitRight.size()));
             Warrior unitLeft = warriorUnitLeft.get(rnd.nextInt(warriorUnitLeft.size()));
-                DateHelper.skipTime();
+            DateHelper.skipTime();
             if (attack == 0) {
                 unitLeft.takeDamage(unitRight.attack());
-                tvInfo.append(unitLeft.toString()+"\n");
+                tvInfo.append(unitLeft.toString() + "\n");
                 // Нужно информативно вывести ход боя
                 if (!unitLeft.isAlive()) {
                     warriorUnitLeft.remove(unitLeft);
                 }
             } else {
                 unitRight.takeDamage(unitLeft.attack());
-                tvInfo.append(unitRight.toString()+"\n");
+                tvInfo.append(unitRight.toString() + "\n");
                 if (!unitRight.isAlive()) {
                     warriorUnitRight.remove(unitRight);
                 }
             }
 
             if (warriorUnitRight.isEmpty() || warriorUnitLeft.isEmpty()) {
-                tvInfo.append("Время "+DateHelper.getFormattedDiff());
+                tvInfo.append("Время " + DateHelper.getFormattedDiff());
                 loop = false;
-                if(warriorUnitLeft.isEmpty()){
+                if (warriorUnitLeft.isEmpty()) {
                     // правильно проверить выход и вывести победившую команду
                 }
             }
