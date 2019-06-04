@@ -29,9 +29,8 @@ public class Archer implements Warrior {
 
     @Override
     public String toString() {
-        return "Archer{" +
-                "healts=" + healts +
-                ", attack=" + attack +
-                '}';
+        return "Archer :" +
+                "healts = " + healts +
+                ", attack = " + attack;
     }
 }

@@ -29,9 +29,8 @@ public class Viking implements Warrior {
 
     @Override
     public String toString() {
-        return "Viking{" +
-                "healts=" + healts +
-                ", attack=" + attack +
-                '}';
+        return "Viking :" +
+                "healts = " + healts +
+                ", attack = " + attack;
     }
 }
