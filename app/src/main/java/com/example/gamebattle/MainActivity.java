@@ -23,12 +23,10 @@ public class MainActivity extends AppCompatActivity {
     private Button btnButton;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        System.out.println("привет андроид");
 
         tvInfo = findViewById(R.id.tv_info);
         btnButton = findViewById(R.id.btn_battle);
@@ -45,16 +43,39 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     private void startBattle() {
 
         for (int i = 0; i < (numberWarriors); i++) {
             warriorUnitRight.add(new Viking());
             warriorUnitLeft.add(new Archer());
         }
-        Warrior v = warriorUnitRight.get(1);
-        tvInfo.setText(v.attack());
-    }
 
+        while (loop) {
+            int attack = rnd.nextInt(2);
+            Warrior unitRight = warriorUnitRight.get(rnd.nextInt(warriorUnitRight.size()));
+            Warrior unitLeft = warriorUnitLeft.get(rnd.nextInt(warriorUnitLeft.size()));
+
+            if (attack == 0) {
+                unitLeft.takeDamage(unitRight.attack());
+                if (!unitLeft.isAlive()) {
+                    warriorUnitLeft.remove(unitLeft);
+                    tvInfo.append(unitLeft.toString());
+                }
+            } else {
+                unitRight.takeDamage(unitLeft.attack());
+                if (!unitRight.isAlive()) {
+                    warriorUnitRight.remove(unitRight);
+                    tvInfo.append(unitRight.toString());
+                }
+            }
+
+            if (warriorUnitRight.isEmpty() || warriorUnitLeft.isEmpty()) {
+                loop = false;
+            }
+
+        }
+    }
 
 
 }
