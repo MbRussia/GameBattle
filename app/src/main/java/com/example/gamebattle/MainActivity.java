@@ -58,15 +58,15 @@ public class MainActivity extends AppCompatActivity {
 
             if (attack == 0) {
                 unitLeft.takeDamage(unitRight.attack());
+                tvInfo.append(unitLeft.toString());
                 if (!unitLeft.isAlive()) {
                     warriorUnitLeft.remove(unitLeft);
-                    tvInfo.append(unitLeft.toString());
                 }
             } else {
                 unitRight.takeDamage(unitLeft.attack());
+                tvInfo.append(unitRight.toString());
                 if (!unitRight.isAlive()) {
                     warriorUnitRight.remove(unitRight);
-                    tvInfo.append(unitRight.toString());
                 }
             }
 
