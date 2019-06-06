@@ -2,6 +2,7 @@ package com.example.gamebattle;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,13 +15,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private int numberWarriors = 10;
-    private boolean loop = true;
-    private ArrayList<Warrior> warriorUnitRight = new ArrayList<>(numberWarriors);
-    private ArrayList<Warrior> warriorUnitLeft = new ArrayList<>(numberWarriors);
-    private Random rnd = new Random();
-    private TextView tvInfo;
-    private Button btnButton;
+
 
 
     @Override
@@ -28,59 +23,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvInfo = findViewById(R.id.tv_info);
-        btnButton = findViewById(R.id.btn_battle);
-        tvInfo.setText(getString(R.string.battleView));
 
-        btnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvInfo.setText(getString(R.string.startGame));
-                startBattle();
-
-
-            }
-        });
 
     }
 
-    private void startBattle() {
 
-        for (int i = 0; i < (numberWarriors); i++) {
-            warriorUnitRight.add(new Viking());
-            warriorUnitLeft.add(new Archer());
-        }
-        tvInfo.append(DateHelper.getFormattedStartDate() + "\n");
-        while (loop) {
-            int attack = rnd.nextInt(2);
-            Warrior unitRight = warriorUnitRight.get(rnd.nextInt(warriorUnitRight.size()));
-            Warrior unitLeft = warriorUnitLeft.get(rnd.nextInt(warriorUnitLeft.size()));
-            DateHelper.skipTime();
-            if (attack == 0) {
-                unitLeft.takeDamage(unitRight.attack());
-                tvInfo.append(unitLeft.toString() + "\n");
-                // Нужно информативно вывести ход боя
-                if (!unitLeft.isAlive()) {
-                    warriorUnitLeft.remove(unitLeft);
-                }
-            } else {
-                unitRight.takeDamage(unitLeft.attack());
-                tvInfo.append(unitRight.toString() + "\n");
-                if (!unitRight.isAlive()) {
-                    warriorUnitRight.remove(unitRight);
-                }
-            }
-
-            if (warriorUnitRight.isEmpty() || warriorUnitLeft.isEmpty()) {
-                tvInfo.append("Время " + DateHelper.getFormattedDiff());
-                loop = false;
-                if (warriorUnitLeft.isEmpty()) {
-                    // правильно проверить выход и вывести победившую команду
-                }
-            }
-
-        }
-    }
 
 
 }
