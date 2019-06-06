@@ -1,6 +1,6 @@
 package com.example.gamebattle;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -13,6 +13,8 @@ import com.example.gamebattle.typeWarriors.Warrior;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class BattleActivity extends AppCompatActivity {
     private int numberWarriors = 10;
