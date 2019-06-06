@@ -4,5 +4,5 @@
     <string name="battle">Battle</string>
     <string name="terminal">Terminal</string>
     <string name="battleView">Start Game</string>
-    <string name="startGame">StartWindow</string>
+    <string name="start_game">StartWindow</string>
 </resources>

@@ -36,7 +36,7 @@ public class BattleActivity extends AppCompatActivity {
         btnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvInfo.append(getString(R.string.startGame));
+                tvInfo.append(getString(R.string.start_game));
                 startBattle();
             }
         });
