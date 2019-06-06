@@ -17,17 +17,18 @@
         android:scrollbars="vertical"/>
 
     <Button
-        android:id="@+id/btn_battle"
+        android:id="@+id/btn_select_battle"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:text="@string/battle" />
 
     <Button
-        android:id="@+id/btn_terminal"
+        android:id="@+id/btn_select_terminal"
         android:layout_width="match_parent"
+        android:layout_marginBottom="50dp"
         android:layout_height="50dp"
-        android:layout_alignTop="@id/btn_battle"
-        android:text="@string/battle" />
+        android:layout_alignParentBottom="true"
+        android:text="@string/terminal" />
 
 </RelativeLayout>
