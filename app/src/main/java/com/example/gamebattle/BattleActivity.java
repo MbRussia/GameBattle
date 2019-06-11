@@ -50,7 +50,7 @@ public class BattleActivity extends AppCompatActivity {
             warriorUnitRight.add(new Viking());
             warriorUnitLeft.add(new Archer());
         }
-        tvInfo.append(DateHelper.getFormattedStartDate() + "\n");
+        tvInfo.append("Время начала боя: "+DateHelper.getFormattedStartDate() + "\n");
         while (loop) {
             int attack = rnd.nextInt(2);
             Warrior unitRight = warriorUnitRight.get(rnd.nextInt(warriorUnitRight.size()));
@@ -58,25 +58,33 @@ public class BattleActivity extends AppCompatActivity {
             DateHelper.skipTime();
             if (attack == 0) {
                 unitLeft.takeDamage(unitRight.attack());
+                tvInfo.append("Ход Викингов!\n");
+                tvInfo.append("Викинги наносят удар в "+ unitRight.attack()+" единиц\n");
                 tvInfo.append(unitLeft.toString() + "\n");
-                // Нужно информативно вывести ход боя
                 if (!unitLeft.isAlive()) {
                     warriorUnitLeft.remove(unitLeft);
+                    tvInfo.append("Лучник Умер!\n");
                 }
             } else {
                 unitRight.takeDamage(unitLeft.attack());
+                tvInfo.append("Ход Лучников!\n");
+                tvInfo.append("Лучники наносят удар в "+ unitLeft.attack()+" единиц\n");
                 tvInfo.append(unitRight.toString() + "\n");
                 if (!unitRight.isAlive()) {
                     warriorUnitRight.remove(unitRight);
+                    tvInfo.append("Викинг Умер!\n");
                 }
             }
 
-            if (warriorUnitRight.isEmpty() || warriorUnitLeft.isEmpty()) {
-                tvInfo.append("Время " + DateHelper.getFormattedDiff());
+            if (warriorUnitRight.isEmpty()) {
+                tvInfo.append("Время " + DateHelper.getFormattedDiff()+"\n");
+                tvInfo.append("Выиграла команда Викингов!");
                 loop = false;
-                if (warriorUnitLeft.isEmpty()) {
-                    // правильно проверить выход и вывести победившую команду
-                }
+            }
+            if (warriorUnitLeft.isEmpty()){
+                tvInfo.append("Время " + DateHelper.getFormattedDiff()+"\n");
+                tvInfo.append("Выиграла команда Лучников!");
+                loop = false;
             }
 
         }
