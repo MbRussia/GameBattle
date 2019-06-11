@@ -18,17 +18,17 @@ public class TerminalActivity extends AppCompatActivity {
         etPin.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                System.out.println("beforeTextChanged"+s.toString()+" START "+start+" COUNT "+count+" AFTER "+after);
+                System.out.println("TextWatcher beforeTextChanged"+s.toString()+" START "+start+" COUNT "+count+" AFTER "+after);
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                System.out.println("onTextChanged"+s.toString()+" START "+start+" COUNT "+count+" BEFORE "+before);
+                System.out.println("TextWatcher onTextChanged"+s.toString()+" START "+start+" COUNT "+count+" BEFORE "+before);
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                System.out.println("afterTextChanged"+s.toString());
+                System.out.println("TextWatcher afterTextChanged"+s.toString());
 
             }
         });

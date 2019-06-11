@@ -7,7 +7,7 @@ public class TerminalImpl implements Terminal {
     @Override
     public int getCash(int numberCard) {
 
-        return ;
+        return 0;
     }
 
     @Override
